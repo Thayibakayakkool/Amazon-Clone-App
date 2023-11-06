@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "989567241198",
+    "project_id": "app-d73d4",
+    "storage_bucket": "app-d73d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989567241198:android:0bc5af5c4ab75899681cff",
+        "android_client_info": {
+          "package_name": "thayiba.amazon.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA189Aln3CKabvr6U43vVlwr5sqZVU8b9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
