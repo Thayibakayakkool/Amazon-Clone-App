@@ -1,9 +1,5 @@
 import 'package:amazon_app/layout/screen_layout.dart';
-//import 'package:amazon_app/model/product_model.dart';
 import 'package:amazon_app/providers/user_detalis_provider.dart';
-//import 'package:amazon_app/screens/product_screen.dart';
-//import 'package:amazon_app/screens/result_screen.dart';
-//import 'package:amazon_app/screens/sell_screen.dart';
 import 'package:amazon_app/screens/sign_in_screen.dart';
 import 'package:amazon_app/utils/color_theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -35,9 +31,7 @@ class AmazonClone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_)=> UserDetailsProvider())
-      ],
+      providers: [ChangeNotifierProvider(create: (_) => UserDetailsProvider())],
       child: MaterialApp(
         title: 'Amazon Clone',
         debugShowCheckedModeBanner: false,
@@ -53,13 +47,12 @@ class AmazonClone extends StatelessWidget {
                 color: Colors.orange,
               ));
             } else if (user.hasData) {
-             return const ScreenLayout();
+              return const ScreenLayout();
             } else {
               return const SignInScreen();
             }
           },
         ),
-        //const ScreenLayout(),
       ),
     );
   }

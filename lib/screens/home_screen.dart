@@ -1,4 +1,3 @@
-//import 'package:amazon_app/model/user_details_model.dart';
 import 'package:amazon_app/resources/cloundfirestore_method.dart';
 import 'package:amazon_app/utils/constant.dart';
 import 'package:amazon_app/widgets/banner_ad_widget.dart';
@@ -6,8 +5,6 @@ import 'package:amazon_app/widgets/categories_horizontal_list_view_bar.dart';
 import 'package:amazon_app/widgets/loading_widget.dart';
 import 'package:amazon_app/widgets/products_showcase_list_view.dart';
 import 'package:amazon_app/widgets/search_bar_widget.dart';
-
-//import 'package:amazon_app/widgets/simple_product_widget.dart';
 import 'package:amazon_app/widgets/user_details_bar.dart';
 import 'package:flutter/material.dart';
 

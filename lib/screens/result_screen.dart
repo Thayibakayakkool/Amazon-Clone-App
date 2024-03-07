@@ -13,8 +13,9 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: SearchBarWidget(isReadOnly: false, hasBackButton: true),
-        body: Column(children: [
+      appBar: SearchBarWidget(isReadOnly: false, hasBackButton: true),
+      body: Column(
+        children: [
           Align(
             alignment: Alignment.centerLeft,
             child: Padding(
@@ -43,30 +44,32 @@ class ResultScreen extends StatelessWidget {
             ),
           ),
           Expanded(
-              child: FutureBuilder(
-            future: FirebaseFirestore.instance
-                .collection("products")
-                .where("productName", isEqualTo: query)
-                .get(),
-                builder: (context,AsyncSnapshot<QuerySnapshot<Map<String,dynamic>>> snapshot){
-              if(snapshot.connectionState==ConnectionState.waiting){
-                return LoadingWidget();
-              }else{
-                return GridView.builder(
-                    itemCount: snapshot.data!.docs.length,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        childAspectRatio: 2/3.3
-                    ),
-                    itemBuilder: (context, index) {
-                      ProductModel product=ProductModel.getModelFromJson(json: snapshot.data!.docs[index].data());
-                      return ResultWidget(
-                        productModel: product
-                      );
-                    });
-              }
-                }
-          )),
-        ]));
+            child: FutureBuilder(
+                future: FirebaseFirestore.instance
+                    .collection("products")
+                    .where("productName", isEqualTo: query)
+                    .get(),
+                builder: (context,
+                    AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
+                        snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return LoadingWidget();
+                  } else {
+                    return GridView.builder(
+                        itemCount: snapshot.data!.docs.length,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3, childAspectRatio: 2 / 3.3),
+                        itemBuilder: (context, index) {
+                          ProductModel product = ProductModel.getModelFromJson(
+                              json: snapshot.data!.docs[index].data());
+                          return ResultWidget(productModel: product);
+                        });
+                  }
+                }),
+          ),
+        ],
+      ),
+    );
   }
 }

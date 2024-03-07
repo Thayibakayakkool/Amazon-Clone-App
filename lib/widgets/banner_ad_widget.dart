@@ -12,7 +12,8 @@ class BannerAddWidget extends StatefulWidget {
 
 class _BannerAddWidgetState extends State<BannerAddWidget> {
   int currentAd = 0;
-double smallAdHeight=120;
+  double smallAdHeight = 120;
+
   @override
   Widget build(BuildContext context) {
     Size screenSize = Utils().getScreenSize(context);
@@ -73,36 +74,38 @@ double smallAdHeight=120;
 
   Widget getSmallAdsFromIndex(int index, double height) {
     return Flexible(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 7),
-          child: Container(
-            height: height,
-            width: height,
-            decoration: ShapeDecoration(
-              color: Colors.white,
-              shadows: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
-                  blurRadius: 5,
-                  spreadRadius: 1,
-                ),
-              ],
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 7),
+        child: Container(
+          height: height,
+          width: height,
+          decoration: ShapeDecoration(
+            color: Colors.white,
+            shadows: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                blurRadius: 5,
+                spreadRadius: 1,
               ),
+            ],
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
             ),
-            child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [Image.network(smallAds[index]),
-                  const SizedBox(height: 5,),
-                  Text(adItemNames[index])
-                ],
-              ),
+          ),
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.network(smallAds[index]),
+                const SizedBox(
+                  height: 5,
+                ),
+                Text(adItemNames[index])
+              ],
             ),
           ),
         ),
-
+      ),
     );
   }
 }

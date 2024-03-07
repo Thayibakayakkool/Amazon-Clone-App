@@ -15,7 +15,7 @@ class CostWidget extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-           Text(
+          Text(
             "₹",
             style: TextStyle(
               color: color,

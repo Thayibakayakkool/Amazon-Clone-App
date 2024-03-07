@@ -131,8 +131,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     );
                                     log("doing next step");
                                   } else {
-                                    Utils().showSnackBar(
-                                        context: context, content: output);
+                                    Utils().flutterToast(output);
                                   }
                                 },
                               ),
@@ -143,21 +142,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   CustomMainButton(
-                      child: const Text(
-                        "Back",
-                        style: TextStyle(
-                            letterSpacing: 0.6, color: Colors.black),
-                      ),
-                      color: Colors.grey[400]!,
-                      isLoading: false,
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SignInScreen(),
-                          ),
-                        );
-                      }),
+                    child: const Text(
+                      "Back",
+                      style: TextStyle(letterSpacing: 0.6, color: Colors.black),
+                    ),
+                    color: Colors.grey[400]!,
+                    isLoading: false,
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SignInScreen(),
+                        ),
+                      );
+                    },
+                  ),
                 ],
               ),
             ),

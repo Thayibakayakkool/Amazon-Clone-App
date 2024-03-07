@@ -10,12 +10,19 @@ class RatingStarWidget extends StatelessWidget {
     List<Widget> children = [];
 
     for (int i = 0; i < 5; i++) {
-      children.add(i < rating ? const Icon(Icons.star, color: Colors.orange,) : const Icon(
-        Icons.star_border, color: Colors.orange,),);
+      children.add(
+        i < rating
+            ? const Icon(
+                Icons.star,
+                color: Colors.orange,
+              )
+            : const Icon(
+                Icons.star_border,
+                color: Colors.orange,
+              ),
+      );
     }
 
-    return Row(
-      children:children
-    );
+    return Row(children: children);
   }
 }

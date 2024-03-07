@@ -1,8 +1,6 @@
 import 'package:amazon_app/model/product_model.dart';
 import 'package:amazon_app/providers/user_detalis_provider.dart';
 import 'package:amazon_app/resources/cloundfirestore_method.dart';
-
-//import 'package:amazon_app/model/user_details_model.dart';
 import 'package:amazon_app/utils/color_theme.dart';
 import 'package:amazon_app/utils/constant.dart';
 import 'package:amazon_app/utils/utils.dart';
@@ -69,7 +67,8 @@ class _CartScreenState extends State<CartScreen> {
                                 await CloundFirestoreMethod().buyAllItemsInCart(
                                     userDetails:
                                         Provider.of<UserDetailsProvider>(
-                                                context,listen: false)
+                                                context,
+                                                listen: false)
                                             .userDetails);
                                 Utils().showSnackBar(
                                     context: context, content: "Done");

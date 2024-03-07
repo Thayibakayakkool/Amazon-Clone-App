@@ -8,17 +8,15 @@ class ProductInformationWidget extends StatelessWidget {
   final double cost;
   final String sellerName;
 
-   const ProductInformationWidget(
+  const ProductInformationWidget(
       {super.key,
       required this.productName,
       required this.cost,
       required this.sellerName});
 
-
-
   @override
   Widget build(BuildContext context) {
-    SizedBox spaceThingy=const SizedBox(
+    SizedBox spaceThingy = const SizedBox(
       height: 7,
     );
     Size screenSize = Utils().getScreenSize(context);

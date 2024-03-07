@@ -1,4 +1,3 @@
-
 import 'package:amazon_app/widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
 

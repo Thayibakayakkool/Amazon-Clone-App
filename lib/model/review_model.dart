@@ -15,9 +15,10 @@ class ReviewModel {
         description: json["description"],
         rating: json["rating"]);
   }
-  Map<String,dynamic> getJson() => {
-    'senderName' :senderName,
-    'description':description,
-    'rating' :rating,
-  };
+
+  Map<String, dynamic> getJson() => {
+        'senderName': senderName,
+        'description': description,
+        'rating': rating,
+      };
 }

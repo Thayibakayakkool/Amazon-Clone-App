@@ -31,24 +31,25 @@ class CategoryWidget extends StatelessWidget {
           ],
         ),
         child: Center(
-            child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Image.network(
-              categoryLogos[index],
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                categoriesList[index],
-                style: const TextStyle(
-                  fontWeight: FontWeight.w500,
-                  letterSpacing: 0.5,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.network(
+                categoryLogos[index],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  categoriesList[index],
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w500,
+                    letterSpacing: 0.5,
+                  ),
                 ),
               ),
-            ),
-          ],
-        )),
+            ],
+          ),
+        ),
       ),
     );
   }

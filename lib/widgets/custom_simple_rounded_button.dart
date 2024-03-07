@@ -14,12 +14,12 @@ class CustomSimpleRoundedButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(5),
-            border: Border.all(
-              color: Colors.grey,
-              width: 1,
-            ),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(5),
+          border: Border.all(
+            color: Colors.grey,
+            width: 1,
+          ),
         ),
         child: Text(text),
       ),

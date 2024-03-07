@@ -28,12 +28,11 @@ class CloundFirestoreMethod {
         .collection("users")
         .doc(firebaseAuth.currentUser!.uid)
         .get();
-if(snap.data!=null){
-  UserDetailsModel userModel =
-  UserDetailsModel.getModelFromJson((snap.data() as dynamic));
-  return userModel;
-}
-
+    if (snap.data != null) {
+      UserDetailsModel userModel =
+          UserDetailsModel.getModelFromJson((snap.data() as dynamic));
+      return userModel;
+    }
   }
 
   Future<String> uploadProductToDatabase({

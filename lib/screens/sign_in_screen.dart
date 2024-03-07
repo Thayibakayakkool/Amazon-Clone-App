@@ -102,8 +102,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               });
                               if (output == "success") {
                               } else {
-                                Utils().showSnackBar(
-                                    context: context, content: output);
+                                Utils().flutterToast(output);
                               }
                             },
                           ),

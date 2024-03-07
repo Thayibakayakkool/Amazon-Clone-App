@@ -35,54 +35,52 @@ class _ScreenLayoutState extends State<ScreenLayout> {
       length: 4,
       child: SafeArea(
         child: Scaffold(
-          body: PageView(
-            controller: pageController,
-            children: screens
-          ),
+          body: PageView(controller: pageController, children: screens),
           bottomNavigationBar: Container(
-            decoration:  BoxDecoration(
+            decoration: BoxDecoration(
                 border: Border(
                     top: BorderSide(
               color: Colors.grey[400]!,
               width: 1,
             ))),
             child: TabBar(
-                indicator: const BoxDecoration(
-                  border: Border(
-                    top: BorderSide(
-                      color: activeCyanColor,
-                      width: 4,
-                    ),
+              indicator: const BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: activeCyanColor,
+                    width: 4,
                   ),
                 ),
-                onTap: changePage,
-                indicatorSize: TabBarIndicatorSize.label,
-                tabs: [
-                  Tab(
-                    child: Icon(
-                      Icons.home_outlined,
-                      color: currentPage == 0 ? activeCyanColor : Colors.black,
-                    ),
+              ),
+              onTap: changePage,
+              indicatorSize: TabBarIndicatorSize.label,
+              tabs: [
+                Tab(
+                  child: Icon(
+                    Icons.home_outlined,
+                    color: currentPage == 0 ? activeCyanColor : Colors.black,
                   ),
-                  Tab(
-                    child: Icon(
-                      Icons.account_circle_outlined,
-                      color: currentPage == 1 ? activeCyanColor : Colors.black,
-                    ),
+                ),
+                Tab(
+                  child: Icon(
+                    Icons.account_circle_outlined,
+                    color: currentPage == 1 ? activeCyanColor : Colors.black,
                   ),
-                  Tab(
-                    child: Icon(
-                      Icons.shopping_cart,
-                      color: currentPage == 2 ? activeCyanColor : Colors.black,
-                    ),
+                ),
+                Tab(
+                  child: Icon(
+                    Icons.shopping_cart,
+                    color: currentPage == 2 ? activeCyanColor : Colors.black,
                   ),
-                  Tab(
-                    child: Icon(
-                      Icons.menu,
-                      color: currentPage == 3 ? activeCyanColor : Colors.black,
-                    ),
+                ),
+                Tab(
+                  child: Icon(
+                    Icons.menu,
+                    color: currentPage == 3 ? activeCyanColor : Colors.black,
                   ),
-                ]),
+                ),
+              ],
+            ),
           ),
         ),
       ),

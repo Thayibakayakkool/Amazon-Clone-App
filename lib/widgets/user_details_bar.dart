@@ -9,17 +9,17 @@ import 'package:provider/provider.dart';
 class UserDetailsBar extends StatelessWidget {
   final double offset;
 
-
   const UserDetailsBar({super.key, required this.offset});
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize=Utils().getScreenSize(context);
-    UserDetailsModel userDetails=Provider.of<UserDetailsProvider>(context).userDetails;
+    Size screenSize = Utils().getScreenSize(context);
+    UserDetailsModel userDetails =
+        Provider.of<UserDetailsProvider>(context).userDetails;
     return Positioned(
-      top: -offset/3,
+      top: -offset / 3,
       child: Container(
-        height: kAppBarHeight/2,
+        height: kAppBarHeight / 2,
         width: screenSize.width,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -42,7 +42,7 @@ class UserDetailsBar extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: screenSize.width*0.7,
+                width: screenSize.width * 0.7,
                 child: Text(
                   "Deliver to ${userDetails.name} - ${userDetails.address}",
                   maxLines: 1,

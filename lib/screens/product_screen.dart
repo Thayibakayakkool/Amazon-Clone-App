@@ -34,11 +34,11 @@ class _ProductScreenState extends State<ProductScreen> {
     Size screenSize = Utils().getScreenSize(context);
     return SafeArea(
       child: Scaffold(
-          appBar: SearchBarWidget(isReadOnly: true, hasBackButton: true),
-          body: Stack(
-            children: [
-              SingleChildScrollView(
-                  child: Padding(
+        appBar: SearchBarWidget(isReadOnly: true, hasBackButton: true),
+        body: Stack(
+          children: [
+            SingleChildScrollView(
+              child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   children: [
@@ -108,7 +108,8 @@ class _ProductScreenState extends State<ProductScreen> {
                                     model: widget.productModel,
                                     userDetails:
                                         Provider.of<UserDetailsProvider>(
-                                                context,listen: false)
+                                                context,
+                                                listen: false)
                                             .userDetails);
                                 Utils().showSnackBar(
                                     context: context, content: "Done");
@@ -137,48 +138,51 @@ class _ProductScreenState extends State<ProductScreen> {
                                     builder: (context) => ReviewDialog(
                                           productUid: widget.productModel.uid,
                                         ));
-                                Utils().showSnackBar(context: context, content: "Added to cart");
+                                Utils().showSnackBar(
+                                    context: context, content: "Added to cart");
                               },
-
                               text: "Add a review for this product"),
                         ],
                       ),
                     ),
                     SizedBox(
-                        height: screenSize.height,
-                        child: StreamBuilder(
-                          stream: FirebaseFirestore.instance
-                              .collection("products")
-                              .doc(widget.productModel.uid)
-                              .collection("reviews")
-                              .snapshots(),
-                          builder: (context,
-                              AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
-                                  snapshot) {
-                            if (snapshot.connectionState ==
-                                ConnectionState.waiting) {
-                              return Container();
-                            } else {
-                              return ListView.builder(
-                                  itemCount: snapshot.data!.docs.length,
-                                  itemBuilder: (context, index) {
-                                    ReviewModel model =
-                                        ReviewModel.getModelFromJson(
-                                            json: snapshot.data!.docs[index]
-                                                .data());
-                                    return ReviewWidget(review: model);
-                                  });
-                            }
-                          },
-                        )),
+                      height: screenSize.height,
+                      child: StreamBuilder(
+                        stream: FirebaseFirestore.instance
+                            .collection("products")
+                            .doc(widget.productModel.uid)
+                            .collection("reviews")
+                            .snapshots(),
+                        builder: (context,
+                            AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
+                                snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return Container();
+                          } else {
+                            return ListView.builder(
+                                itemCount: snapshot.data!.docs.length,
+                                itemBuilder: (context, index) {
+                                  ReviewModel model =
+                                      ReviewModel.getModelFromJson(
+                                          json: snapshot.data!.docs[index]
+                                              .data());
+                                  return ReviewWidget(review: model);
+                                });
+                          }
+                        },
+                      ),
+                    ),
                   ],
                 ),
-              )),
-              const UserDetailsBar(
-                offset: 0,
               ),
-            ],
-          )),
+            ),
+            const UserDetailsBar(
+              offset: 0,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

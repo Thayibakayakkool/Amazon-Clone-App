@@ -30,11 +30,12 @@ class ProductShowcaseListView extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 17, fontWeight: FontWeight.bold),
                 ),
                 const Padding(
-                  padding:  EdgeInsets.only(left: 14),
-                  child:  Text(
+                  padding: EdgeInsets.only(left: 14),
+                  child: Text(
                     "Show more",
                     style: TextStyle(color: activeCyanColor),
                   ),
@@ -43,7 +44,7 @@ class ProductShowcaseListView extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: height-(titleHeight+26),
+            height: height - (titleHeight + 26),
             width: screenSize.width,
             child: ListView(
               scrollDirection: Axis.horizontal,

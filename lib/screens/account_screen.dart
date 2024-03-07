@@ -74,21 +74,19 @@ class _AccountScreenState extends State<AccountScreen> {
                           .get(),
                       builder: (context,
                           AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
-                              snapshot) {
+                          snapshot) {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
                           return Container();
                         } else {
                           List<Widget> children = [];
                           try {
-                            //print(snapshot.data);
                             for (int i = 0;
-                                i < snapshot.data!.docs.length;
-                                i++) {
-                              //print(snapshot.data!.docs[0]['ProductId']);
+                            i < snapshot.data!.docs.length;
+                            i++) {
                               ProductModel model =
-                                  ProductModel.getModelFromJson(
-                                      json: snapshot.data!.docs[i].data());
+                              ProductModel.getModelFromJson(
+                                  json: snapshot.data!.docs[i].data());
 
                               children.add(
                                   SimpleProductWidget(productModel: model));
@@ -113,47 +111,50 @@ class _AccountScreenState extends State<AccountScreen> {
                 ),
                 Expanded(
                     child: StreamBuilder(
-                  stream: FirebaseFirestore.instance
-                      .collection("users")
-                      .doc(FirebaseAuth.instance.currentUser!.uid)
-                      .collection("orderRequests")
-                      .snapshots(),
-                  builder: (context,
-                      AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
+                      stream: FirebaseFirestore.instance
+                          .collection("users")
+                          .doc(FirebaseAuth.instance.currentUser!.uid)
+                          .collection("ordersRequests")
+                          .snapshots(),
+                      builder: (context,
+                          AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
                           snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Container();
-                    } else {
-                      return ListView.builder(
-                          itemCount: snapshot.data!.docs.length,
-                          itemBuilder: (context, index) {
-                            OrderRequestModel model =
-                                OrderRequestModel.getModelFromJson(
-                                    json: snapshot.data!.docs[index].data());
-                            return ListTile(
-                              title: Text(
-                                "Order: ${model.orderName}",
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.w500),
-                              ),
-                              subtitle: Text('Address:${model.buyersAddress}'),
-                              trailing: IconButton(
-                                onPressed: () async {
-                                  FirebaseFirestore.instance
-                                      .collection("users")
-                                      .doc(FirebaseAuth
-                                          .instance.currentUser!.uid)
-                                      .collection("orderRequest")
-                                      .doc(snapshot.data!.docs[index].id)
-                                      .delete();
-                                },
-                                icon: const Icon(Icons.check),
-                              ),
-                            );
-                          });
-                    }
-                  },
-                ))
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return Container();
+                        } else {
+                          return ListView.builder(
+                            itemCount: snapshot.data!.docs.length,
+                            itemBuilder: (context, index) {
+                              OrderRequestModel model =
+                              OrderRequestModel.getModelFromJson(
+                                  json: snapshot.data!.docs[index].data());
+                              return ListTile(
+                                title: Text(
+                                  "Order: ${model.orderName}",
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                subtitle: Text(
+                                    'Address:${model.buyersAddress}'),
+                                trailing: IconButton(
+                                  onPressed: () async {
+                                    FirebaseFirestore.instance
+                                        .collection("users")
+                                        .doc(FirebaseAuth
+                                        .instance.currentUser!.uid)
+                                        .collection("orderRequest")
+                                        .doc(snapshot.data!.docs[index].id)
+                                        .delete();
+                                  },
+                                  icon: const Icon(Icons.check),
+                                ),
+                              );
+                            },);
+                        }
+
+                      },
+                    ))
               ],
             ),
           ),
@@ -167,7 +168,9 @@ class IntroductionWidgetAccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     UserDetailsModel userDetailsModel =
-        Provider.of<UserDetailsProvider>(context).userDetails;
+        Provider
+            .of<UserDetailsProvider>(context)
+            .userDetails;
     return Container(
       height: kAppBarHeight / 2,
       decoration: const BoxDecoration(
