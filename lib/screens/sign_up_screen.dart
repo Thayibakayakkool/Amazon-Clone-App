@@ -103,7 +103,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               alignment: Alignment.center,
                               child: CustomMainButton(
                                 child: const Text(
-                                  'Sign In',
+                                  'Sign Up',
                                   style: TextStyle(
                                       letterSpacing: 0.6, color: Colors.black),
                                 ),
