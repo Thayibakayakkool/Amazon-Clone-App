@@ -3,7 +3,7 @@
 ## Login & Registration Screen
 <r>
 <img src="https://github.com/Thayibakayakkool/Amazon-Clone-App/assets/147040960/398628f6-d989-49fc-85cf-bb64f03cd075" width="200" height="400">
-<img src="https://github.com/Thayibakayakkool/Amazon-Clone-App/assets/147040960/ec582591-9c75-4206-a38f-2abcfc8382ea" width="200" height="400">
+<img src="https://github.com/Thayibakayakkool/Amazon-Clone-App/assets/147040960/58d82865-131a-4bf2-a85b-2b24f9aa7c34" width="200" height="400">
 </r>
 
 ## Home Screen
